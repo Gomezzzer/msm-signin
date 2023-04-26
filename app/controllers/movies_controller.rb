@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
 
     redirect_to "/bookmarks", :notice => "Bookmarked movie"
   end
-
+  
   def index
     matching_movies = Movie.all
 

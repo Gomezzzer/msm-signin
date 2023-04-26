@@ -1,6 +1,6 @@
 class BookmarksController < ApplicationController
   def index
-    matching_bookmarks = Bookmark.all
+    matching_bookmarks = Bookmark.all 
 
     @list_of_bookmarks = matching_bookmarks.order({ :created_at => :desc })
 
