@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all bookmarks
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new bookmark
+    </h2>
+
+    <form action="/insert_bookmark" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="movie_id_box">
+          Movie
+        </label>
+
+        <input type="text" id="movie_id_box" name="query_movie_id">
+      </div>
+
+      <button>
+        Create bookmark
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Movie
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_bookmarks.each do |a_bookmark| %>
+      <tr>
+        <td>
+          <%= a_bookmark.id %>
+        </td>
+
+        <td>
+          <%= a_bookmark.user_id %>
+        </td>
+
+        <td>
+          <%= a_bookmark.movie_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_bookmark.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_bookmark.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/bookmarks/<%= a_bookmark.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Character #<%= @the_character.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/characters">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_character/<%= @the_character.id %>">
+          Delete character
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_character.name %>
+      </dd>
+
+      <dt>
+        Actor
+      </dt>
+      <dd>
+        <%= @the_character.actor_id %>
+      </dd>
+
+      <dt>
+        Movie
+      </dt>
+      <dd>
+        <%= @the_character.movie_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_character.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_character.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit character
+    </h2>
+
+    <form action="/modify_character/<%= @the_character.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_character.name %>">
+      </div>
+
+      <div>
+        <label for="actor_id_box">
+          Actor
+        </label>
+
+        <input type="text" id="actor_id_box" name="query_actor_id" value="<%= @the_character.actor_id %>">
+      </div>
+
+      <div>
+        <label for="movie_id_box">
+          Movie
+        </label>
+
+        <input type="text" id="movie_id_box" name="query_movie_id" value="<%= @the_character.movie_id %>">
+      </div>
+
+      <button>
+        Update character
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

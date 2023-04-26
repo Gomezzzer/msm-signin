@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all characters
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new character
+    </h2>
+
+    <form action="/insert_character" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="actor_id_box">
+          Actor
+        </label>
+
+        <input type="text" id="actor_id_box" name="query_actor_id">
+      </div>
+
+      <div>
+        <label for="movie_id_box">
+          Movie
+        </label>
+
+        <input type="text" id="movie_id_box" name="query_movie_id">
+      </div>
+
+      <button>
+        Create character
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Actor
+        </th>
+
+        <th>
+          Movie
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_characters.each do |a_character| %>
+      <tr>
+        <td>
+          <%= a_character.id %>
+        </td>
+
+        <td>
+          <%= a_character.name %>
+        </td>
+
+        <td>
+          <%= a_character.actor_id %>
+        </td>
+
+        <td>
+          <%= a_character.movie_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_character.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_character.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/characters/<%= a_character.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

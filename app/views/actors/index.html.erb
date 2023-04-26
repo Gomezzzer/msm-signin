@@ -1,0 +1,134 @@
+<div>
+  <div>
+    <h1>
+      List of all actors
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new actor
+    </h2>
+
+    <form action="/insert_actor" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="dob_box">
+          Dob
+        </label>
+
+        <input type="date" id="dob_box" name="query_dob">
+      </div>
+
+      <div>
+        <label for="bio_box">
+          Bio
+        </label>
+
+        <textarea id="bio_box" name="query_bio" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image">
+      </div>
+
+      <button>
+        Create actor
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Dob
+        </th>
+
+        <th>
+          Bio
+        </th>
+
+        <th>
+          Image
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_actors.each do |an_actor| %>
+      <tr>
+        <td>
+          <%= an_actor.id %>
+        </td>
+
+        <td>
+          <%= an_actor.name %>
+        </td>
+
+        <td>
+          <%= an_actor.dob %>
+        </td>
+
+        <td>
+          <%= an_actor.bio %>
+        </td>
+
+        <td>
+          <%= an_actor.image %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_actor.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_actor.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/actors/<%= an_actor.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
