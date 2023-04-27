@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-#144
+
   get("/add_bookmark", { :controller => "movies", :action => "add_user_bookmark" })
 
   get("/", { :controller => "movies", :action => "index" })

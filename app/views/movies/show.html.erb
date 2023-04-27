@@ -3,6 +3,7 @@
     <h1>
       Movie #<%= @the_movie.id %> details
     </h1>
+    
    <% if @current_user != nil %>
    <% current_user_bookmarks = @current_user.bookmarks.where({ :movie_id => @the_movie.id }) %>
 
